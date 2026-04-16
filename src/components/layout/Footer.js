@@ -8,16 +8,16 @@ import {
 } from "mdb-react-ui-kit";
 import { FaGithub, FaFacebook, FaHackerrank } from "react-icons/fa";
 import { FaLinkedinIn, FaInstagram } from "react-icons/fa6";
-import "./Footer.Module.css";
+import './Footer.css';
 
-const Footer = () => {
+const Footer = ({ theme }) => {
   return (
-    <MDBFooter className="text-center" color="white" bgColor="dark">
+    <MDBFooter className={`site-footer text-center ${theme === 'dark' ? 'site-footer--dark' : 'site-footer--light'}`}>
       <MDBContainer className="p-4">
         <section className="mb-4">
           <MDBBtn
             outline
-            color="light"
+            color={theme === 'dark' ? 'light' : 'dark'}
             floating
             className="m-1 circular-btn"
             href="#!"
@@ -28,7 +28,7 @@ const Footer = () => {
 
           <MDBBtn
             outline
-            color="light"
+            color={theme === 'dark' ? 'light' : 'dark'}
             floating
             className="m-1 circular-btn"
             href="#!"
@@ -39,7 +39,7 @@ const Footer = () => {
 
           <MDBBtn
             outline
-            color="light"
+            color={theme === 'dark' ? 'light' : 'dark'}
             floating
             className="m-1 circular-btn"
             href="#!"
@@ -50,7 +50,7 @@ const Footer = () => {
 
           <MDBBtn
             outline
-            color="light"
+            color={theme === 'dark' ? 'light' : 'dark'}
             floating
             className="m-1 circular-btn"
             href="#!"
@@ -61,7 +61,7 @@ const Footer = () => {
 
           <MDBBtn
             outline
-            color="light"
+            color={theme === 'dark' ? 'light' : 'dark'}
             floating
             className="m-1 circular-btn"
             href="#!"
@@ -95,12 +95,12 @@ const Footer = () => {
 
               <ul className="list-unstyled mb-0">
                 <li>
-                  <a href="#!" className="text-white">
+                  <a href="#!" className="footer-link">
                     Lorem
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="text-white">
+                  <a href="#!" className="footer-link">
                     Lorem
                   </a>
                 </li>
@@ -112,22 +112,22 @@ const Footer = () => {
 
               <ul className="list-unstyled mb-0">
                 <li>
-                  <a href="#!" className="text-white">
+                  <a href="#!" className="footer-link">
                     Facebook
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="text-white">
+                  <a href="#!" className="footer-link">
                     Instagram
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="text-white">
+                  <a href="#!" className="footer-link">
                     Skype
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="text-white">
+                  <a href="#!" className="footer-link">
                     Twitter
                   </a>
                 </li>
@@ -139,17 +139,17 @@ const Footer = () => {
 
               <ul className="list-unstyled mb-0">
                 <li>
-                  <a href="#!" className="text-white">
+                  <a href="#!" className="footer-link">
                     Term and Use
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="text-white">
+                  <a href="#!" className="footer-link">
                     Privacy and Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="text-white">
+                  <a href="#!" className="footer-link">
                     Cookie Policy
                   </a>
                 </li>
@@ -160,11 +160,10 @@ const Footer = () => {
       </MDBContainer>
 
       <div
-        className="text-center p-3"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+        className="text-center p-3 site-footer__bottom"
       >
         Developed By
-        <a className="text-white" href="https://mdbootstrap.com/">
+        <a className="footer-link" href="https://mdbootstrap.com/">
           {" "}
           Jannatul Ferdeous
         </a>

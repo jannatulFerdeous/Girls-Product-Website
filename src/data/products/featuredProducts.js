@@ -1,9 +1,9 @@
-import p1_img from './product_1.jpg'
-import p2_img from './product_2.jpg'
-import p3_img from './product_3.jpg'
-import p4_img from './product_4.jpg'
-import p5_img from './product_5.jpg'
-import p6_img from './product_6.jpg'
+import p1_img from '../../assets/store/product_1.jpg';
+import p2_img from '../../assets/store/product_2.jpg';
+import p3_img from '../../assets/store/product_3.jpg';
+import p4_img from '../../assets/store/product_4.jpg';
+import p5_img from '../../assets/store/product_5.jpg';
+import p6_img from '../../assets/store/product_6.jpg';
 
 let data_product = [
   {

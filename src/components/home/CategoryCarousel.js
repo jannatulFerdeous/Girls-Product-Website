@@ -1,13 +1,13 @@
 import React from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import card1 from "../assets/img/cat-1.jpg";
-import card2 from "../assets/img/cat-2.jpg";
-import card3 from "../assets/img/cat-3.jpg";
-import card4 from "../assets/img/cat-4.jpg";
-import './Card.Module.css';
+import card1 from '../../assets/img/cat-1.jpg';
+import card2 from '../../assets/img/cat-2.jpg';
+import card3 from '../../assets/img/cat-3.jpg';
+import card4 from '../../assets/img/cat-4.jpg';
+import './CategoryCarousel.css';
 
-export const Card = () => {
+const CategoryCarousel = () => {
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
@@ -57,4 +57,6 @@ export const Card = () => {
             </div>
         </section>
     );
-}
+};
+
+export default CategoryCarousel;

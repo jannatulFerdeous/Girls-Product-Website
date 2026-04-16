@@ -1,0 +1,205 @@
+@font-face {
+  font-family: 'Centra';
+  src: url('../assets/font/CentraNo2-Medium.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Centra';
+  src: url('../assets/font/CentraNo2-Book.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Centra';
+  src: url('../assets/font/CentraNo2-Bold.ttf');
+  font-weight: 700;
+}
+
+:root {
+  --color-background: #f6efe8;
+  --color-surface: rgba(255, 255, 255, 0.82);
+  --color-surface-strong: #fff9f4;
+  --color-border: rgba(91, 52, 34, 0.14);
+  --color-text: #24130f;
+  --color-text-soft: #6f5b54;
+  --color-accent: #c88662;
+  --color-accent-strong: #9f6146;
+  --color-accent-soft: #e0a17a;
+  --color-highlight: #b98a55;
+  --color-nav: rgba(255, 250, 245, 0.8);
+  --color-nav-strong: rgba(255, 252, 249, 0.94);
+  --color-cart-surface: rgba(255, 252, 249, 0.97);
+  --home-grid-line: rgba(36, 19, 15, 0.04);
+  --home-hero-orb-one: rgba(200, 134, 98, 0.2);
+  --home-hero-orb-two: rgba(185, 158, 138, 0.2);
+  --home-panel-border: rgba(91, 52, 34, 0.12);
+  --home-panel-top: rgba(255, 250, 245, 0.9);
+  --home-panel-bottom: rgba(244, 236, 229, 0.84);
+  --home-panel-sheen: rgba(255, 255, 255, 0.3);
+  --home-badge-bg: rgba(255, 255, 255, 0.7);
+  --home-badge-border: rgba(91, 52, 34, 0.12);
+  --home-floating-bg: rgba(255, 255, 255, 0.74);
+  --home-floating-border: rgba(91, 52, 34, 0.12);
+  --home-brand-line: rgba(36, 19, 15, 0.08);
+  --home-brand-text: rgba(36, 19, 15, 0.45);
+  --home-marquee-text: #7a4f44;
+  --home-service-bg: rgba(255, 255, 255, 0.72);
+  --home-category-surface: #ddcec2;
+  --home-category-overlay-start: rgba(36, 19, 15, 0.04);
+  --home-category-overlay-end: rgba(36, 19, 15, 0.66);
+  --home-card-hover-border: rgba(91, 52, 34, 0.18);
+  --home-product-image-start: #fff8f2;
+  --home-product-image-end: #f1e1d7;
+  --home-tag-bg: rgba(255, 255, 255, 0.84);
+  --home-editorial-card-bg: rgba(255, 252, 249, 0.82);
+  --shadow-soft: 0 18px 40px rgba(36, 19, 15, 0.08);
+  --shadow-large: 0 24px 70px rgba(70, 33, 19, 0.14);
+  --page-width: min(1200px, calc(100% - 32px));
+  --radius-card: 32px;
+  --radius-pill: 999px;
+  --font-display: 'Centra', 'Baskerville', 'Times New Roman', serif;
+  --font-body: 'Centra', 'Segoe UI', sans-serif;
+}
+
+:root[data-theme='dark'] {
+  --color-background: #0c1117;
+  --color-surface: rgba(20, 27, 36, 0.78);
+  --color-surface-strong: #161e28;
+  --color-border: rgba(218, 226, 239, 0.12);
+  --color-text: #eef3f8;
+  --color-text-soft: #9eacbb;
+  --color-accent: #c88662;
+  --color-accent-strong: #e0a17a;
+  --color-accent-soft: #8e5e4f;
+  --color-highlight: #d6b07a;
+  --color-nav: rgba(16, 22, 30, 0.78);
+  --color-nav-strong: rgba(16, 22, 30, 0.94);
+  --color-cart-surface: rgba(20, 27, 36, 0.96);
+  --home-grid-line: rgba(255, 255, 255, 0.04);
+  --home-hero-orb-one: rgba(200, 134, 98, 0.24);
+  --home-hero-orb-two: rgba(96, 120, 148, 0.2);
+  --home-panel-border: rgba(255, 255, 255, 0.12);
+  --home-panel-top: rgba(26, 34, 45, 0.9);
+  --home-panel-bottom: rgba(14, 20, 28, 0.82);
+  --home-panel-sheen: rgba(255, 255, 255, 0.08);
+  --home-badge-bg: rgba(255, 255, 255, 0.08);
+  --home-badge-border: rgba(255, 255, 255, 0.08);
+  --home-floating-bg: rgba(255, 255, 255, 0.06);
+  --home-floating-border: rgba(255, 255, 255, 0.1);
+  --home-brand-line: rgba(255, 255, 255, 0.08);
+  --home-brand-text: rgba(238, 243, 248, 0.45);
+  --home-marquee-text: #7a4f44;
+  --home-service-bg: rgba(255, 255, 255, 0.04);
+  --home-category-surface: #1a2330;
+  --home-category-overlay-start: rgba(5, 8, 14, 0.04);
+  --home-category-overlay-end: rgba(5, 8, 14, 0.82);
+  --home-card-hover-border: rgba(255, 255, 255, 0.16);
+  --home-product-image-start: #1a2330;
+  --home-product-image-end: #10161f;
+  --home-tag-bg: rgba(255, 255, 255, 0.08);
+  --home-editorial-card-bg: rgba(12, 17, 23, 0.82);
+  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.28);
+  --shadow-large: 0 24px 70px rgba(0, 0, 0, 0.34);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
+  background:
+    radial-gradient(circle at top left, rgba(206, 160, 133, 0.26), transparent 24%),
+    radial-gradient(circle at 82% 12%, rgba(209, 185, 162, 0.24), transparent 20%),
+    linear-gradient(180deg, #fffaf5 0%, var(--color-background) 42%, #f4ece5 100%);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 220ms ease, color 220ms ease;
+}
+
+:root[data-theme='dark'] body {
+  background:
+    radial-gradient(circle at top left, rgba(122, 83, 66, 0.28), transparent 24%),
+    radial-gradient(circle at 82% 12%, rgba(53, 72, 93, 0.34), transparent 20%),
+    linear-gradient(180deg, #111722 0%, var(--color-background) 42%, #0a0f15 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+.page-shell {
+  width: var(--page-width);
+  margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-width: min(100% - 22px, 1200px);
+  }
+}

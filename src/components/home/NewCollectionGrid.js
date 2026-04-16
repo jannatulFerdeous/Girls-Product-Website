@@ -1,30 +1,30 @@
 import React, { useContext } from 'react'
-import './NewCollection.Module.css'
-import new_collections from './Assets/new_collections'
-import { Items } from './Items'
-import { ShopContext } from './ShopContext'
+import { ShopContext } from '../../context/ShopContext';
+import newCollections from '../../data/products/newCollections';
+import { ProductCard } from '../product/ProductCard';
+import './NewCollectionGrid.css';
 
-export const NewCollection = () => {
-  const { addToCart } = useContext(ShopContext); // Get addToCart function from context
+export const NewCollectionGrid = () => {
+  const { addToCart } = useContext(ShopContext);
 
   return (
     <div className='new-collections'>
         <h1>All Products</h1>
         <hr/>
         <div className='new-collections-items'>
-            {new_collections.map((item, i) => (
+            {newCollections.map((item, i) => (
                 <div key={i} className='item-container'>
-                    <Items  
+                    <ProductCard
                         id={item.id}
                         name={item.name}
                         image={item.image}
                         new_price={item.new_price}
                         old_price={item.old_price}
                     />
-                    <button onClick={() => addToCart(item.id)}>ADD TO CART</button> {/* Add to Cart Button */}
+                    <button onClick={() => addToCart(item.id)}>ADD TO CART</button>
                 </div>
             ))}
         </div>
     </div>
   )
-}
+};

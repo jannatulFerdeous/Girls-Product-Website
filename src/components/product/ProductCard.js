@@ -1,8 +1,8 @@
 import React from 'react';
-import './Items.Module.css';
 import { Link } from 'react-router-dom';
+import './ProductCard.css';
 
-export const Items = ({ id, name, image, new_price, old_price }) => {
+export const ProductCard = ({ id, name, image, new_price, old_price }) => {
     return (
         <div className='items'>
            <Link to={`/product/${id}`}><img src={image} alt={name} /></Link> 

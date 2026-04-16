@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import './Offers.Module.css'
+import './OffersCarousel.css';
 
-import img1 from './Assets/slide-1.jpg';
-import img2 from './Assets/slide-2.jpg';
+import img1 from '../../assets/store/slide-1.jpg';
+import img2 from '../../assets/store/slide-2.jpg';
 
-export const Offers = () => {
+export const OffersCarousel = () => {
     const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {

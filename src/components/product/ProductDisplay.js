@@ -1,10 +1,8 @@
 import React, { useContext } from 'react'
-import "./ProductDisplay.Module.css"
-
-import star from './Assets/star_icon.png'
-import star_dull from './Assets/star_dull_icon.png'
-import { ShopContext } from './ShopContext'
-
+import { ShopContext } from '../../context/ShopContext';
+import star from '../../assets/store/star_icon.png';
+import star_dull from '../../assets/store/star_dull_icon.png';
+import './ProductDisplay.css';
 
 export const ProductDisplay = (props) => {
 

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
-import img1 from '../assets/img/banner1.jpg';
-import img2 from '../assets/img/banner2.jpg';
-import img3 from '../assets/img/banner3.jpg';
+import img1 from '../../assets/img/banner1.jpg';
+import img2 from '../../assets/img/banner2.jpg';
+import img3 from '../../assets/img/banner3.jpg';
 
-function ControlledCarousel() {
+function HeroCarousel() {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
@@ -27,4 +27,4 @@ function ControlledCarousel() {
   );
 }
 
-export default ControlledCarousel;
+export default HeroCarousel;
