@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
-import img1 from '../../assets/img/banner1.jpg';
-import img2 from '../../assets/img/banner2.jpg';
-import img3 from '../../assets/img/banner3.jpg';
+import img1 from '../../assets/store/hero_image.png';
+import img2 from '../../assets/store/slide-1.jpg';
+import img3 from '../../assets/store/slide-2.jpg';
 
 function HeroCarousel() {
   const [index, setIndex] = useState(0);

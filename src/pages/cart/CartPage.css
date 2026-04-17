@@ -1,0 +1,114 @@
+.cart-page {
+  position: relative;
+  padding-bottom: 88px;
+  color: var(--color-text);
+}
+
+.cart-page__topbar {
+  padding: 132px 0 28px;
+}
+
+.cart-page__topbar-inner {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 28px;
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
+}
+
+.cart-page__eyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--color-accent-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.cart-page__eyebrow::before {
+  content: '';
+  width: 44px;
+  height: 1px;
+  background: currentColor;
+}
+
+.cart-page__title-block h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  margin-bottom: 10px;
+}
+
+.cart-page__title-block p {
+  color: var(--color-text-soft);
+  line-height: 1.72;
+}
+
+.cart-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.cart-page__button {
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.cart-page__button:hover {
+  transform: translateY(-2px);
+}
+
+.cart-page__button--primary {
+  color: #fffdf9;
+  background: linear-gradient(135deg, var(--color-accent-strong), var(--color-accent));
+  box-shadow: 0 16px 30px rgba(123, 97, 190, 0.24);
+}
+
+.cart-page__button--ghost {
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.cart-page__body {
+  padding-top: 4px;
+}
+
+.cart-page .cart-container {
+  padding: 0;
+}
+
+@media (max-width: 960px) {
+  .cart-page__topbar-inner {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .cart-page__topbar {
+    padding-top: 116px;
+  }
+
+  .cart-page__topbar-inner {
+    padding: 20px;
+  }
+}

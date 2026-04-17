@@ -15,12 +15,12 @@ import { ShopContext } from "../../context/ShopContext";
 import featuredProducts from "../../data/products/featuredProducts";
 import newCollections from "../../data/products/newCollections";
 import heroImage from "../../assets/store/exclusive_image.png";
-import categoryImage1 from "../../assets/img/cat-1.jpg";
-import categoryImage2 from "../../assets/img/cat-2.jpg";
-import categoryImage3 from "../../assets/img/cat-3.jpg";
-import categoryImage4 from "../../assets/img/cat-4.jpg";
-import bannerWomen from "../../assets/store/banner_women.png";
-import bannerKids from "../../assets/store/banner_kids.png";
+import categoryImage1 from "../../assets/store/product_1.jpg";
+import categoryImage2 from "../../assets/store/product_4.jpg";
+import categoryImage3 from "../../assets/store/product_7.jpg";
+import categoryImage4 from "../../assets/store/product_10.jpg";
+import bannerWomen from "../../assets/store/slide-1.jpg";
+import bannerKids from "../../assets/store/banner_mens.png";
 import "./HomePage.css";
 
 const categories = [
@@ -511,7 +511,7 @@ const HomePage = () => {
       <section className="home-editorial">
         <div className="home-shell home-editorial__grid">
           <div className="home-editorial__media">
-            <img src={bannerWomen} alt="Women collection" />
+            <img src={bannerWomen} alt="Skincare collection editorial visual" />
             <div className="home-editorial__accent-card">
               <span>Limited campaign</span>
               <strong>Soft-focus formulas, stronger silhouettes.</strong>
@@ -598,7 +598,7 @@ const HomePage = () => {
             </div>
 
             <aside className="home-promo-card">
-              <img src={bannerKids} alt="Kids collection" />
+              <img src={bannerKids} alt="Makeup and beauty essentials" />
               <div className="home-promo-card__content">
                 <span>Gift edit</span>
                 <h3>Build a playful bundle for festive moments.</h3>

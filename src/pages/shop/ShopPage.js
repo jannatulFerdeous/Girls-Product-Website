@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import {
   FiArrowRight,
   FiBox,
@@ -87,11 +87,22 @@ const ShopPage = () => {
   const { all_product, addToCart } = useContext(ShopContext);
   const [activeFilter, setActiveFilter] = useState('all');
   const [sortBy, setSortBy] = useState('featured');
+  const [searchParams] = useSearchParams();
+  const searchTerm = searchParams.get('search')?.trim().toLowerCase() || '';
 
   const preparedProducts = all_product.map((product, index) => getProductProfile(product, index));
 
   const filteredProducts = preparedProducts
-    .filter(({ filter }) => activeFilter === 'all' || filter === activeFilter)
+    .filter(({ filter, product, accent, finish }) => {
+      const matchesFilter = activeFilter === 'all' || filter === activeFilter;
+      const matchesSearch =
+        !searchTerm ||
+        product.name.toLowerCase().includes(searchTerm) ||
+        accent.toLowerCase().includes(searchTerm) ||
+        finish.toLowerCase().includes(searchTerm);
+
+      return matchesFilter && matchesSearch;
+    })
     .sort((left, right) => {
       if (sortBy === 'price-low') {
         return left.product.new_price - right.product.new_price;
@@ -196,7 +207,7 @@ const ShopPage = () => {
         <div className='shop-catalog__toolbar'>
           <div>
             <span className='shop-kicker'>Store collection</span>
-            <h2>Browse the full edit</h2>
+            <h2>{searchTerm ? `Results for "${searchParams.get('search')}"` : 'Browse the full edit'}</h2>
           </div>
 
           <div className='shop-controls'>
@@ -249,7 +260,7 @@ const ShopPage = () => {
           </aside>
 
           <div className='shop-grid'>
-            {filteredProducts.map(({ product, accent, finish, badge, tone, rating }) => (
+            {filteredProducts.length ? filteredProducts.map(({ product, accent, finish, badge, tone, rating }) => (
               <article key={product.id} className={`shop-card ${tone}`}>
                 <span className='shop-card__badge'>{badge}</span>
 
@@ -286,7 +297,12 @@ const ShopPage = () => {
                   </div>
                 </div>
               </article>
-            ))}
+            )) : (
+              <div className='shop-empty-state'>
+                <h3>No products matched your search.</h3>
+                <p>Try a different product name or browse all drops from the filter controls.</p>
+              </div>
+            )}
           </div>
         </div>
       </section>

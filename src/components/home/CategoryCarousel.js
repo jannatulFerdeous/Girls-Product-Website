@@ -1,10 +1,10 @@
 import React from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import card1 from '../../assets/img/cat-1.jpg';
-import card2 from '../../assets/img/cat-2.jpg';
-import card3 from '../../assets/img/cat-3.jpg';
-import card4 from '../../assets/img/cat-4.jpg';
+import card1 from '../../assets/store/product_2.jpg';
+import card2 from '../../assets/store/product_5.jpg';
+import card3 from '../../assets/store/product_8.jpg';
+import card4 from '../../assets/store/product_11.jpg';
 import './CategoryCarousel.css';
 
 const CategoryCarousel = () => {
@@ -39,16 +39,16 @@ const CategoryCarousel = () => {
                                     <h5>SKIN CARE</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={card2} alt="Body Care" />
-                                    <h5>BODY CARE</h5>
+                                    <img src={card2} alt="Serum and Glow" />
+                                    <h5>SERUM GLOW</h5>
                                 </div>
                                 <div className="item">
                                     <img src={card3} alt="Make Up" />
                                     <h5>MAKE UP</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={card4} alt="Spa Care" />
-                                    <h5>SPA CARE</h5>
+                                    <img src={card4} alt="Beauty Sets" />
+                                    <h5>BEAUTY SETS</h5>
                                 </div>
                             </Carousel>
                         </div>

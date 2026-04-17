@@ -1,11 +1,17 @@
 import React from 'react';
 import { CartItems } from './CartItems';
 
-export const Cart = ({ onClose }) => {
+export const Cart = ({ onClose, showClose = true }) => {
   return (
     <div className='cart-container'>
-      <button className='close-btn' onClick={onClose}>X</button>
-      <CartItems />
+      <div className='cart-shell'>
+        {showClose ? (
+          <button className='close-btn' onClick={onClose} aria-label='Close cart'>
+            x
+          </button>
+        ) : null}
+        <CartItems />
+      </div>
     </div>
   );
 };
