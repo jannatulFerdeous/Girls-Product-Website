@@ -1,6 +1,7 @@
 import React, { useContext, useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
+import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   FiArrowRight,
@@ -85,6 +86,17 @@ const heroHighlights = [
   "Luxury skincare mood",
 ];
 
+const galleryImages = [
+  siteImages.heroVisual,
+  siteImages.faceCreamModel,
+  siteImages.beautyEditorial,
+  siteImages.posterVisual,
+  siteImages.serumStillLife,
+  siteImages.spaProducts,
+  siteImages.posterVisualTwo,
+  siteImages.lavenderCollection,
+];
+
 const HomePage = () => {
   const { addToCart } = useContext(ShopContext);
   const pageRef = useRef(null);
@@ -93,12 +105,15 @@ const HomePage = () => {
   const arrivals = newCollections.slice(0, 4);
 
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, Flip);
 
-    const ctx = gsap.context(() => {
+    const ctx = gsap.context((self) => {
+      const q = self.selector;
       const mm = gsap.matchMedia();
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
+        let galleryTween;
+
         const heroTimeline = gsap.timeline({
           defaults: { ease: "power3.out" },
         });
@@ -288,12 +303,59 @@ const HomePage = () => {
             scrub: 1,
           },
         });
+
+        const createGalleryTween = () => {
+          galleryTween?.kill();
+
+          const galleryElement = q(".home-gallery")[0];
+          if (!galleryElement) {
+            return;
+          }
+
+          const galleryItems = q(".home-gallery__item");
+          galleryElement.classList.remove("home-gallery--final");
+          gsap.set(galleryItems, { clearProps: "all" });
+
+          galleryElement.classList.add("home-gallery--final");
+          const flipState = Flip.getState(galleryItems);
+          galleryElement.classList.remove("home-gallery--final");
+
+          const flipAnimation = Flip.to(flipState, {
+            targets: galleryItems,
+            absolute: true,
+            simple: true,
+            ease: "power3.inOut",
+            stagger: 0,
+          });
+
+          galleryTween = gsap.timeline({
+            scrollTrigger: {
+              trigger: galleryElement,
+              start: "center center",
+              end: "+=100%",
+              scrub: true,
+              pin: galleryElement.parentNode,
+            },
+          });
+
+          galleryTween.add(flipAnimation, 0);
+        };
+
+        createGalleryTween();
+        window.addEventListener("resize", createGalleryTween);
+
+        return () => {
+          window.removeEventListener("resize", createGalleryTween);
+          galleryTween?.kill();
+        };
       });
 
       return () => mm.revert();
     }, pageRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -374,6 +436,28 @@ const HomePage = () => {
           <span>Luxury textures, everyday prices</span>
           <span>Free shipping over Tk.3000</span>
           <span>Clean beauty picks</span>
+        </div>
+      </section>
+
+      <section className="home-gallery-section">
+        <div className="home-gallery-wrap">
+          <div className="home-gallery home-gallery--bento home-gallery--switch">
+            {galleryImages.map((image, index) => (
+              <div key={`${image}-${index}`} className="home-gallery__item">
+                <img src={image} alt={`Beauty editorial ${index + 1}`} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="home-gallery-copy page-shell">
+          <span className="home-kicker">Visual campaign</span>
+          <h2>A scroll-driven beauty gallery with a more editorial reveal.</h2>
+          <p>
+            The gallery starts as a sculpted bento layout, then opens into a
+            larger immersive spread while the page is pinned, creating a richer
+            premium transition before the rest of the homepage content.
+          </p>
         </div>
       </section>
 

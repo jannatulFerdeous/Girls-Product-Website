@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Footer from '../components/layout/Footer';
+import LiquidCursor from '../components/layout/LiquidCursor';
 import RobotGuide from '../components/guide/RobotGuide';
 import { Navbar } from '../components/layout/Navbar';
 import AboutPage from '../pages/about/AboutPage';
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <LiquidCursor />
       <Navbar theme={theme} onToggleTheme={handleToggleTheme} />
       <RobotGuide />
       <Routes>
