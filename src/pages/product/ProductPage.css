@@ -1,5 +1,12 @@
-.product{
-    
-    margin-top: 130px;
-    margin-left: 95px;
+.product {
+  width: min(100% - 40px, 1260px);
+  margin: 130px auto 80px;
+}
+
+@media (max-width: 767px) {
+  .product {
+    width: min(100% - 24px, 1260px);
+    margin-top: 112px;
+    margin-bottom: 56px;
+  }
 }

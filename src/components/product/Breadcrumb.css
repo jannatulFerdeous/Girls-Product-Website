@@ -1,10 +1,17 @@
-.breadcrum{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #5e5e5e;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 60px 170px;
-    text-transform: capitalize;
+.breadcrum {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 28px;
+  color: var(--color-text-soft);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.breadcrum svg {
+  font-size: 0.82rem;
+  color: var(--color-accent-strong);
 }

@@ -14,9 +14,7 @@ import {
   FiTruck,
 } from 'react-icons/fi';
 
-import heroImage from '../../assets/store/hero_image.png';
-import spotlightImage from '../../assets/store/product_9.jpg';
-import detailImage from '../../assets/store/slide-1.jpg';
+import { siteImages } from '../../assets/newImageAssets';
 import './FeaturePage.css';
 
 const signatureFeatures = [
@@ -235,7 +233,7 @@ const FeaturePage = () => {
                   <FiStar />
                   Featured Visual System
                 </div>
-                <img className='feature-scene__image' src={heroImage} alt='' />
+                <img className='feature-scene__image' src={siteImages.posterVisualTwo} alt='' />
               </div>
 
               <div className='feature-floating-card feature-floating-card--top'>
@@ -302,10 +300,10 @@ const FeaturePage = () => {
 
         <div className='feature-spotlight__media'>
           <div className='feature-spotlight__image-shell feature-spotlight__image-shell--primary'>
-            <img src={spotlightImage} alt='Skincare feature showcase' />
+            <img src={siteImages.bodyWashBlackOrchid} alt='Skincare feature showcase' />
           </div>
           <div className='feature-spotlight__image-shell feature-spotlight__image-shell--secondary'>
-            <img src={detailImage} alt='Beauty product detail preview' />
+            <img src={siteImages.serumStillLife} alt='Beauty product detail preview' />
           </div>
         </div>
       </section>

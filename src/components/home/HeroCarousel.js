@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
-import img1 from '../../assets/store/hero_image.png';
-import img2 from '../../assets/store/slide-1.jpg';
-import img3 from '../../assets/store/slide-2.jpg';
+import { siteImages } from '../../assets/newImageAssets';
 
 function HeroCarousel() {
   const [index, setIndex] = useState(0);
@@ -15,13 +13,13 @@ function HeroCarousel() {
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
-        <img style={{height:'80vh'}} className="d-block w-100" src={img1} alt="First slide" />  
+        <img style={{height:'80vh'}} className="d-block w-100" src={siteImages.heroVisual} alt="Featured beauty campaign" />
       </Carousel.Item>
       <Carousel.Item>
-        <img style={{height:'80vh'}} className="d-block w-100" src={img2} alt="Second slide" />
+        <img style={{height:'80vh'}} className="d-block w-100" src={siteImages.posterVisualTwo} alt="Beauty product story" />
       </Carousel.Item>
       <Carousel.Item>
-        <img style={{height:'80vh'}} className="d-block w-100" src={img3} alt="Third slide" />
+        <img style={{height:'80vh'}} className="d-block w-100" src={siteImages.spaProducts} alt="Spa inspired collection" />
       </Carousel.Item>
     </Carousel>
   );

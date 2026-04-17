@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { FiArrowRight, FiLock, FiLogIn, FiShield, FiStar } from 'react-icons/fi';
 
+import { siteImages } from '../../assets/newImageAssets';
 import { AuthContext } from '../../context/AuthContext';
-import heroImage from '../../assets/store/product_3.jpg';
 import '../register/RegisterPage.css';
 
 const LoginPage = () => {
@@ -99,7 +99,7 @@ const LoginPage = () => {
           </div>
 
           <div className='auth-page__image-shell'>
-            <img src={heroImage} alt='Beauty login visual' />
+            <img src={siteImages.faceCreamModel} alt='Beauty login visual' />
           </div>
         </div>
       </section>

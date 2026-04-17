@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import Nav from 'react-bootstrap/Nav';
 import BootstrapNavbar from 'react-bootstrap/Navbar';
 import { FiLogOut, FiMoon, FiSun } from 'react-icons/fi';
@@ -16,7 +15,6 @@ import './Navbar.css';
 
 export const Navbar = ({ theme, onToggleTheme }) => {
     const [scrolled, setScrolled] = useState(false);
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
@@ -42,12 +40,6 @@ export const Navbar = ({ theme, onToggleTheme }) => {
         const params = new URLSearchParams(location.search);
         setSearchTerm(params.get('search') || '');
     }, [location.pathname, location.search]);
-
-    useEffect(() => {
-        if (location.pathname !== '/shop' && !searchTerm) {
-            setIsSearchOpen(false);
-        }
-    }, [location.pathname, searchTerm]);
 
     const totalQuantity = Object.values(cartItems).reduce((a, b) => a + b, 0);
 
@@ -82,34 +74,25 @@ export const Navbar = ({ theme, onToggleTheme }) => {
                         <Nav.Link as={Link} to='/about' className={location.pathname === '/about' ? 'active navbar-link' : 'navbar-link'}>About</Nav.Link>
                     </Nav>
                     <span className='navbar-text'>
-                        <div className={`navbar-search ${isSearchOpen ? 'is-open' : ''}`}>
-                            <button
-                                type='button'
-                                className='navbar-search__toggle'
-                                onClick={() => setIsSearchOpen((current) => !current)}
-                                aria-expanded={isSearchOpen}
-                                aria-label='Toggle search'
-                            >
-                                <LuSearch />
-                            </button>
+                        <div className='navbar-search'>
+                            <form className='navbar-search__panel' onSubmit={handleSearchSubmit}>
+                                <span className='navbar-search__toggle' aria-hidden='true'>
+                                    <LuSearch />
+                                </span>
 
-                            {isSearchOpen ? (
-                                <form className='navbar-search__panel' onSubmit={handleSearchSubmit}>
-                                    <InputGroup className='search-input-group'>
-                                        <Form.Control
-                                            type="text"
-                                            value={searchTerm}
-                                            onChange={(event) => setSearchTerm(event.target.value)}
-                                            placeholder="Search skincare, serum, makeup..."
-                                            aria-label="Search products"
-                                            autoFocus
-                                        />
-                                        <button type='submit' className='navbar-search__submit'>
-                                            Search
-                                        </button>
-                                    </InputGroup>
-                                </form>
-                            ) : null}
+                                <div className='search-input-group'>
+                                    <Form.Control
+                                        type="text"
+                                        value={searchTerm}
+                                        onChange={(event) => setSearchTerm(event.target.value)}
+                                        placeholder="Search skincare, serum, makeup..."
+                                        aria-label="Search products"
+                                    />
+                                    <button type='submit' className='navbar-search__submit'>
+                                        Search
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                         <button
                             type='button'

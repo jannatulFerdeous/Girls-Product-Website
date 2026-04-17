@@ -1,4 +1,4 @@
-import React, { useContext, useLayoutEffect, useRef, useState } from "react";
+import React, { useContext, useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,16 +11,11 @@ import {
   FiTruck,
 } from "react-icons/fi";
 
+import { siteImages } from "../../assets/newImageAssets";
+import HeroProductModel from "../../components/home/HeroProductModel";
 import { ShopContext } from "../../context/ShopContext";
 import featuredProducts from "../../data/products/featuredProducts";
 import newCollections from "../../data/products/newCollections";
-import heroImage from "../../assets/store/exclusive_image.png";
-import categoryImage1 from "../../assets/store/product_1.jpg";
-import categoryImage2 from "../../assets/store/product_4.jpg";
-import categoryImage3 from "../../assets/store/product_7.jpg";
-import categoryImage4 from "../../assets/store/product_10.jpg";
-import bannerWomen from "../../assets/store/slide-1.jpg";
-import bannerKids from "../../assets/store/banner_mens.png";
 import "./HomePage.css";
 
 const categories = [
@@ -29,27 +24,27 @@ const categories = [
     title: "Skin Rituals",
     description:
       "Hydration-first essentials with luminous finishes and soft-care textures.",
-    image: categoryImage1,
+    image: siteImages.skincareBottle,
   },
   {
     eyebrow: "Body",
     title: "Daily Softness",
     description:
       "Creamy formulas, warm fragrance notes, and elevated everyday self-care.",
-    image: categoryImage2,
+    image: siteImages.bodyWashBlackOrchid,
   },
   {
     eyebrow: "Color",
     title: "Studio Makeup",
     description: "Modern pigment stories for effortless day-to-night looks.",
-    image: categoryImage3,
+    image: siteImages.beautyEditorial,
   },
   {
     eyebrow: "Spa",
     title: "Reset Collection",
     description:
       "Calm, restore, and slow down with a minimalist at-home retreat.",
-    image: categoryImage4,
+    image: siteImages.spaProducts,
   },
 ];
 
@@ -84,25 +79,18 @@ const brandMentions = [
   "AURA PICKS",
 ];
 
+const heroHighlights = [
+  "Drag to rotate",
+  "3D texture detail",
+  "Luxury skincare mood",
+];
+
 const HomePage = () => {
   const { addToCart } = useContext(ShopContext);
-  const [pointer, setPointer] = useState({ x: 0, y: 0 });
   const pageRef = useRef(null);
 
   const featured = featuredProducts.slice(0, 4);
   const arrivals = newCollections.slice(0, 4);
-
-  const handleSceneMove = (event) => {
-    const bounds = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
-    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
-
-    setPointer({ x, y });
-  };
-
-  const resetScene = () => {
-    setPointer({ x: 0, y: 0 });
-  };
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -313,13 +301,19 @@ const HomePage = () => {
       <section className="home-hero">
         <div className="home-shell home-hero__grid">
           <div className="home-hero__content">
-            <span className="home-kicker">Night edit 2026</span>
-            <h1>Beauty essentials with a darker, sharper flagship feel.</h1>
+            <span className="home-kicker">Editorial glow 2026</span>
+            <h1>Luxury skincare with a 3D hero that feels alive in your hand.</h1>
             <p>
-              A refined storefront for glow-led skincare, modern makeup, and
-              elevated self-care, designed to feel cinematic, minimal, and
-              premium.
+              Explore a more polished storefront with a tactile product stage,
+              softer lighting, and a cleaner premium layout built to make the
+              first impression feel more immersive.
             </p>
+
+            <div className="home-hero__highlights">
+              {heroHighlights.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
 
             <div className="home-hero__actions">
               <Link
@@ -334,30 +328,39 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div
-            className="home-hero__visual"
-            onMouseMove={handleSceneMove}
-            onMouseLeave={resetScene}
-          >
+          <div className="home-hero__visual">
             <div className="home-hero__orb home-hero__orb--one" />
             <div className="home-hero__orb home-hero__orb--two" />
+            <div className="home-hero__spark home-hero__spark--one" />
+            <div className="home-hero__spark home-hero__spark--two" />
 
-            <div
-              className="home-hero__panel"
-              style={{
-                transform: `perspective(1400px) rotateX(${pointer.y * -8}deg) rotateY(${pointer.x * 11}deg)`,
-              }}
-            >
+            <div className="home-hero__panel">
               <div className="home-hero__badge">
                 <FiStar />
-                Signature launch
+                Signature skincare drop
               </div>
 
-              <img
-                src={heroImage}
-                alt="Exclusive collection spotlight"
-                className="home-hero__image"
-              />
+              <div className="home-hero__stage">
+                <div className="home-hero__halo" />
+                <HeroProductModel />
+              </div>
+
+              <div className="home-floating-card home-floating-card--top">
+                <FiStar />
+                <div>
+                  <span>Hero look</span>
+                  <strong>Rotate the product</strong>
+                  <small>Move your mouse across the model to inspect the 3D finish.</small>
+                </div>
+              </div>
+
+              <div className="home-floating-card home-floating-card--bottom">
+                <div>
+                  <span>New texture</span>
+                  <strong>Cleaner luxury stage</strong>
+                </div>
+                <small>Less framing, more product focus, and a stronger premium feel.</small>
+              </div>
             </div>
           </div>
         </div>
@@ -511,7 +514,7 @@ const HomePage = () => {
       <section className="home-editorial">
         <div className="home-shell home-editorial__grid">
           <div className="home-editorial__media">
-            <img src={bannerWomen} alt="Skincare collection editorial visual" />
+            <img src={siteImages.faceCreamModel} alt="Skincare collection editorial visual" />
             <div className="home-editorial__accent-card">
               <span>Limited campaign</span>
               <strong>Soft-focus formulas, stronger silhouettes.</strong>
@@ -598,7 +601,7 @@ const HomePage = () => {
             </div>
 
             <aside className="home-promo-card">
-              <img src={bannerKids} alt="Makeup and beauty essentials" />
+              <img src={siteImages.lavenderCollection} alt="Makeup and beauty essentials" />
               <div className="home-promo-card__content">
                 <span>Gift edit</span>
                 <h3>Build a playful bundle for festive moments.</h3>

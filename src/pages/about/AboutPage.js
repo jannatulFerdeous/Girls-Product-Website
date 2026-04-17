@@ -4,8 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FiArrowRight, FiHeart, FiLayers, FiShield, FiStar, FiTruck } from 'react-icons/fi';
 
-import heroImage from '../../assets/store/hero_image.png';
-import detailImage from '../../assets/store/slide-2.jpg';
+import { siteImages } from '../../assets/newImageAssets';
 import './AboutPage.css';
 
 const values = [
@@ -206,7 +205,7 @@ const AboutPage = () => {
             <div className='about-orb about-orb--one'></div>
             <div className='about-orb about-orb--two'></div>
             <div className='about-hero__media'>
-              <img src={heroImage} alt='' />
+              <img src={siteImages.heroPro} alt='' />
               <div className='about-floating-card'>
                 <FiStar />
                 <div>
@@ -258,7 +257,7 @@ const AboutPage = () => {
         </div>
 
         <div className='about-story__media'>
-          <img src={detailImage} alt='Beauty and skincare brand story visual' />
+          <img src={siteImages.spaProducts} alt='Beauty and skincare brand story visual' />
         </div>
       </section>
 

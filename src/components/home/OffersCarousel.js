@@ -3,8 +3,7 @@ import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import './OffersCarousel.css';
 
-import img1 from '../../assets/store/slide-1.jpg';
-import img2 from '../../assets/store/slide-2.jpg';
+import { siteImages } from '../../assets/newImageAssets';
 
 export const OffersCarousel = () => {
     const [index, setIndex] = useState(0);
@@ -15,13 +14,13 @@ export const OffersCarousel = () => {
   return (
     <Carousel className='offer' activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
-        <img  className="d-block w-100" src={img1} alt="First slide" />  
+        <img  className="d-block w-100" src={siteImages.posterVisual} alt="Featured offer collection" />
       </Carousel.Item>
       <Carousel.Item>
-        <img className="d-block w-100" src={img2} alt="Second slide" />
+        <img className="d-block w-100" src={siteImages.posterVisualTwo} alt="Wellness beauty offer" />
       </Carousel.Item>
       <Carousel.Item>
-      <img className="d-block w-100" src={img2} alt="Second slide" />
+      <img className="d-block w-100" src={siteImages.faceCreamModel} alt="Skincare promotion" />
       </Carousel.Item>
     </Carousel>
   );

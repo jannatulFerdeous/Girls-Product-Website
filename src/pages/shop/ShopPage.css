@@ -450,7 +450,13 @@
   overflow: hidden;
   border-radius: 32px;
   padding: 20px;
+  cursor: pointer;
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.shop-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
 }
 
 .shop-card:hover {

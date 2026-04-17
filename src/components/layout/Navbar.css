@@ -65,14 +65,29 @@ span.navbar-text {
 }
 
 .navbar-search {
-  position: relative;
   display: flex;
   align-items: center;
 }
 
+.navbar-search__panel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px 6px 6px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
+  transition:
+    border-color 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
 .navbar-search__toggle {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -80,7 +95,6 @@ span.navbar-text {
   border: 1px solid var(--color-border);
   background: rgba(255, 255, 255, 0.08);
   color: var(--color-text);
-  box-shadow: 0 10px 24px rgba(36, 19, 15, 0.08);
   transition:
     transform 0.2s ease,
     background-color 0.2s ease,
@@ -98,30 +112,18 @@ span.navbar-text {
   font-size: 1.3rem;
 }
 
-.navbar-search__panel {
-  position: absolute;
-  right: 0;
-  top: calc(100% + 10px);
-  z-index: 20;
-}
-
 .search-input-group {
-  min-width: min(360px, 70vw);
+  display: flex;
   align-items: center;
   gap: 10px;
-  padding: 6px;
-  border-radius: 999px;
-  border: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(16px);
+  width: min(260px, 34vw);
 }
 
 .search-input-group .form-control {
-  min-width: 0;
+  min-width: 160px;
   border: 0;
   box-shadow: none;
-  padding: 0;
+  padding: 0 0 0 2px;
   background: transparent;
   color: var(--color-text);
 }
@@ -136,7 +138,11 @@ span.navbar-text {
   border-radius: 999px;
   color: #fffdf9;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--color-accent-strong), var(--color-accent));
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-strong),
+    var(--color-accent)
+  );
   box-shadow: 0 10px 22px rgba(123, 97, 190, 0.2);
 }
 
@@ -162,7 +168,7 @@ span.navbar-text {
 }
 
 .theme-toggle-btn {
-  width: 114px;
+  width: 52px;
   height: 52px;
   padding: 0;
   margin-left: 0;
@@ -372,14 +378,8 @@ nav.navbar .navbar-toggler-icon:after {
     padding-top: 14px;
   }
 
-  .navbar-search__panel {
-    left: 0;
-    right: auto;
-    width: min(100%, 360px);
-  }
-
   .search-input-group {
-    min-width: min(100%, 360px);
+    width: min(100%, 320px);
   }
 
   .theme-toggle-btn {

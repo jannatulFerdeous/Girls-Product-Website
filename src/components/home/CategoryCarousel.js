@@ -1,10 +1,7 @@
 import React from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import card1 from '../../assets/store/product_2.jpg';
-import card2 from '../../assets/store/product_5.jpg';
-import card3 from '../../assets/store/product_8.jpg';
-import card4 from '../../assets/store/product_11.jpg';
+import { siteImages } from '../../assets/newImageAssets';
 import './CategoryCarousel.css';
 
 const CategoryCarousel = () => {
@@ -35,19 +32,19 @@ const CategoryCarousel = () => {
                         <div className="skill-bx">
                             <Carousel responsive={responsive} infinite={true} className="skill-slider">
                                 <div className="item">
-                                    <img src={card1} alt="Skin Care" />
+                                    <img src={siteImages.skincareBottleTwo} alt="Skin Care" />
                                     <h5>SKIN CARE</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={card2} alt="Serum and Glow" />
+                                    <img src={siteImages.serumStillLife} alt="Serum and Glow" />
                                     <h5>SERUM GLOW</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={card3} alt="Make Up" />
+                                    <img src={siteImages.beautyEditorial} alt="Make Up" />
                                     <h5>MAKE UP</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={card4} alt="Beauty Sets" />
+                                    <img src={siteImages.productFlatlay} alt="Beauty Sets" />
                                     <h5>BEAUTY SETS</h5>
                                 </div>
                             </Carousel>

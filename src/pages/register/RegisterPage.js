@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { FiArrowRight, FiCheck, FiShield, FiUserPlus } from 'react-icons/fi';
 
+import { siteImages } from '../../assets/newImageAssets';
 import { AuthContext } from '../../context/AuthContext';
-import heroImage from '../../assets/store/product_8.jpg';
 import './RegisterPage.css';
 
 const benefits = [
@@ -83,7 +83,7 @@ const RegisterPage = () => {
           </div>
 
           <div className='auth-page__image-shell'>
-            <img src={heroImage} alt='Beauty register visual' />
+            <img src={siteImages.beautyEditorial} alt='Beauty register visual' />
           </div>
         </div>
 

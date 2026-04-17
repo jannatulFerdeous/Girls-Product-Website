@@ -1,47 +1,42 @@
-import p1_img from '../../assets/store/product_1.jpg';
-import p2_img from '../../assets/store/product_2.jpg';
-import p3_img from '../../assets/store/product_3.jpg';
-import p4_img from '../../assets/store/product_4.jpg';
-import p5_img from '../../assets/store/product_5.jpg';
-import p6_img from '../../assets/store/product_6.jpg';
+import { curatedProductImages } from '../../assets/newImageAssets';
 
 let data_product = [
   {
     id:1,
-    name:"Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
-    image:p1_img,
+    name:"Hydra Glow Daily Cleanser",
+    image:curatedProductImages[0],
     new_price:50.00,
     old_price:80.50,
   },
   {id:2,
-    name:"Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
-    image:p2_img,
+    name:"Vitamin C Brightening Serum",
+    image:curatedProductImages[1],
     new_price:85.00,
     old_price:120.50,
   },
   {id:3,
-    name:"Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
-    image:p3_img,
+    name:"Rosewater Hydration Mist",
+    image:curatedProductImages[2],
     new_price:60.00,
     old_price:100.50,
   },
   {id:4,
-    name:"Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
-    image:p4_img,
+    name:"Barrier Repair Night Cream",
+    image:curatedProductImages[3],
     new_price:100.00,
     old_price:150.00,
   },
 
   {id:5,
-    name:"Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
-    image:p5_img,
+    name:"Silk Touch Body Lotion",
+    image:curatedProductImages[4],
     new_price:100.00,
     old_price:150.00,
   },
 
   {id:6,
-    name:"Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
-    image:p6_img,
+    name:"Botanical Shower Gel",
+    image:curatedProductImages[5],
     new_price:100.00,
     old_price:150.00,
   },

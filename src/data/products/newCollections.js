@@ -1,73 +1,66 @@
-import p1_img from '../../assets/store/product_7.jpg';
-import p2_img from '../../assets/store/product_8.jpg';
-import p3_img from '../../assets/store/product_9.jpg';
-import p4_img from '../../assets/store/product_10.jpg';
-import p5_img from '../../assets/store/product_11.jpg';
-import p6_img from '../../assets/store/product_1.jpg';
-import p7_img from '../../assets/store/product_6.jpg';
-import p8_img from '../../assets/store/product_4.jpg';
+import { curatedProductImages } from '../../assets/newImageAssets';
 
 let new_collections = [
   {
     id: 7,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
-    image: p1_img,
+    name: "Glow Essence Face Oil",
+    image: curatedProductImages[6],
     new_price: 50.0,
     old_price: 80.5,
   },
   {
     id: 8,
-    name: "Boys Orange Colourblocked Hooded Sweatshirt",
-    image: p2_img,
+    name: "Calming Aloe Moisturizer",
+    image: curatedProductImages[7],
     new_price: 85.0,
     old_price: 120.5,
   },
   {
     id: 9,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
-    image: p3_img,
+    name: "Luminous Skin Reset Mask",
+    image: curatedProductImages[8],
     new_price: 60.0,
     old_price: 100.5,
   },
   {
     id: 10,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
-    image: p4_img,
+    name: "Peptide Renewal Concentrate",
+    image: curatedProductImages[9],
     new_price: 100.0,
     old_price: 150.0,
   },
   {
     id: 11,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
-    image: p5_img,
+    name: "Lavender Spa Care Kit",
+    image: curatedProductImages[10],
     new_price: 50.0,
     old_price: 80.5,
   },
   {
     id: 12,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
-    image: p6_img,
+    name: "Hydra Glow Daily Cleanser",
+    image: curatedProductImages[0],
     new_price: 85.0,
     old_price: 120.5,
   },
   {
     id: 13,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
-    image: p7_img,
+    name: "Botanical Shower Gel",
+    image: curatedProductImages[5],
     new_price: 60.0,
     old_price: 100.5,
   },
   {
     id: 14,
-    name: "Boys Orange Colourblocked Hooded Sweatshirt",
-    image: p8_img,
+    name: "Barrier Repair Night Cream",
+    image: curatedProductImages[3],
     new_price: 100.0,
     old_price: 150.0,
   },
   {
     id: 15,
-    name: "Boys Orange Colourblocked Hooded Sweatshirt",
-    image: p8_img,
+    name: "Rosewater Hydration Mist",
+    image: curatedProductImages[2],
     new_price: 100.0,
     old_price: 150.0,
   },

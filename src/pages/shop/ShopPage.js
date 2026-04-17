@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import {
   FiArrowRight,
   FiBox,
@@ -88,6 +88,7 @@ const ShopPage = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [sortBy, setSortBy] = useState('featured');
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const searchTerm = searchParams.get('search')?.trim().toLowerCase() || '';
 
   const preparedProducts = all_product.map((product, index) => getProductProfile(product, index));
@@ -261,14 +262,32 @@ const ShopPage = () => {
 
           <div className='shop-grid'>
             {filteredProducts.length ? filteredProducts.map(({ product, accent, finish, badge, tone, rating }) => (
-              <article key={product.id} className={`shop-card ${tone}`}>
+              <article
+                key={product.id}
+                className={`shop-card ${tone}`}
+                role='link'
+                tabIndex={0}
+                onClick={() => navigate(`/product/${product.id}`)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    navigate(`/product/${product.id}`);
+                  }
+                }}
+                aria-label={`Open details for ${product.name}`}
+              >
                 <span className='shop-card__badge'>{badge}</span>
 
-                <div className='shop-card__visual'>
+                <Link
+                  to={`/product/${product.id}`}
+                  className='shop-card__visual'
+                  onClick={(event) => event.stopPropagation()}
+                  aria-label={`View ${product.name}`}
+                >
                   <div className='shop-card__shadow'></div>
                   <div className='shop-card__pedestal'></div>
                   <img src={product.image} alt={product.name} />
-                </div>
+                </Link>
 
                 <div className='shop-card__meta'>
                   <div className='shop-card__eyebrow'>
@@ -290,7 +309,13 @@ const ShopPage = () => {
                       <span>Tk. {product.old_price}</span>
                     </div>
 
-                    <button type='button' onClick={() => addToCart(product.id)}>
+                    <button
+                      type='button'
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        addToCart(product.id);
+                      }}
+                    >
                       <FiShoppingBag />
                       Add
                     </button>
