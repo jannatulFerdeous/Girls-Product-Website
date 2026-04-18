@@ -942,6 +942,7 @@
     grid-template-columns: repeat(2, 48vw);
     grid-template-rows: repeat(4, 22vh);
   }
+
 }
 
 @media (max-width: 768px) {
